@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Марічка — затишне кафе</title>
+    <meta name="description" content="Кафе Марічка — ароматна кава, домашні страви та смачні десерти в затишній атмосфері.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --cream: #faf5ed;
+            --beige: #eee0cd;
+            --brown: #59351f;
+            --chocolate: #70452d;
+            --text: #453225;
+            --muted: #897462;
+            --white: #fffdf9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .container {
+            width: min(1160px, 90%);
+            margin: auto;
+        }
+
+        .section {
+            padding: 76px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .eyebrow {
+            display: block;
+            color: var(--chocolate);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(30px, 4vw, 44px);
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            margin-top: 12px;
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--brown);
+            color: white;
+            padding: 13px 25px;
+            border: 1px solid var(--brown);
+            border-radius: 30px;
+            font-size: 13px;
+            transition: .25s;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: transparent;
+            color: var(--brown);
+        }
+
+        /* Навігація */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(250, 245, 237, .97);
+            border-bottom: 1px solid #e9ddce;
+        }
+
+        .navbar {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--brown);
+            font-size: 31px;
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        .logo small {
+            display: block;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 9px;
+            letter-spacing: 5px;
+            text-align: center;
+            font-style: normal;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        nav a:hover {
+            color: #a06e48;
+        }
+
+        /* Головний екран */
+
+        .hero {
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(90deg,
+                    rgba(245, 228, 207, .97) 0%,
+                    rgba(245, 228, 207, .90) 35%,
+                    rgba(245, 228, 207, .10) 75%),
+                url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=2000&q=85')
+                center 55% / cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 590px;
+            padding: 75px 0;
+        }
+
+        .hero .eyebrow {
+            letter-spacing: 4px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 70px);
+            color: var(--brown);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 390px;
+            margin-bottom: 28px;
+        }
+
+        /* Переваги */
+
+        .features {
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature {
+            padding: 15px 8px;
+        }
+
+        .feature-icon {
+            width: 68px;
+            height: 68px;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: var(--beige);
+            color: var(--brown);
+            font-size: 29px;
+        }
+
+        .feature h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* Про кафе */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 65px;
+        }
+
+        .about-image {
+            height: 440px;
+            border-radius: 4px;
+        }
+
+        .about-text h2 {
+            font-size: clamp(32px, 4vw, 46px);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #6f5b49;
+            margin-bottom: 18px;
+        }
+
+        /* Меню */
+
+        .menu-section {
+            background: #f2e7d8;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .menu-card {
+            background: var(--white);
+            overflow: hidden;
+            border-radius: 5px;
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(80, 49, 29, .12);
+        }
+
+        .menu-card img {
+            height: 230px;
+            transition: transform .4s;
+        }
+
+        .menu-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .menu-card .card-content {
+            padding: 19px;
+        }
+
+        .menu-card h3 {
+            font-size: 23px;
+            margin-bottom: 8px;
+        }
+
+        .menu-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .menu-note {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        /* Наш підхід */
+
+        .promise-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .promise-image {
+            height: 390px;
+            border-radius: 4px;
+        }
+
+        .promise-text h2 {
+            font-size: clamp(32px, 4vw, 45px);
+            margin-bottom: 20px;
+        }
+
+        .promise-text p {
+            color: #6f5b49;
+            margin-bottom: 25px;
+        }
+
+        /* Контакти */
+
+        .contact-section {
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 65px;
+        }
+
+        .contact-grid h2 {
+            font-size: 34px;
+            margin-bottom: 14px;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 25px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px;
+            font: inherit;
+            font-size: 13px;
+            color: var(--text);
+            border: 1px solid #dfd0bf;
+            border-radius: 4px;
+            background: #fffdf9;
+            outline-color: var(--chocolate);
+        }
+
+        .contact-form textarea {
+            min-height: 135px;
+            resize: vertical;
+        }
+
+        .contact-form .full {
+            grid-column: 1 / -1;
+        }
+
+        .contact-info {
+            padding: 10px 0;
+        }
+
+        .contact-info p {
+            margin: 16px 0;
+            color: #6f5b49;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-info strong {
+            color: var(--brown);
+        }
+
+        .contact-photo {
+            margin-top: 24px;
+            height: 180px;
+            border-radius: 4px;
+        }
+
+        /* Підвал */
+
+        footer {
+            background: var(--brown);
+            color: #f9eee1;
+            padding: 30px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            font-style: italic;
+        }
+
+        .footer-content p {
+            font-size: 12px;
+            color: #e4d1bd;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 18px;
+            font-size: 13px;
+        }
+
+        /* Адаптація для телефонів */
+
+        @media (max-width: 850px) {
+            .navbar {
+                flex-wrap: wrap;
+                padding: 14px 0;
+            }
+
+            nav {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px 22px;
+            }
+
+            .navbar > .button {
+                padding: 10px 16px;
+            }
+
+            .hero {
+                min-height: 470px;
+                background-position: 60% center;
+            }
+
+            .hero-content {
+                max-width: 470px;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid,
+            .promise-grid {
+                gap: 30px;
+            }
+
+            .about-image {
+                height: 360px;
+            }
+
+            .contact-grid {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .container {
+                width: 90%;
+            }
+
+            .section {
+                padding: 52px 0;
+            }
+
+            .logo {
+                font-size: 26px;
+            }
+
+            .navbar {
+                gap: 12px;
+            }
+
+            nav {
+                font-size: 12px;
+                gap: 8px 16px;
+            }
+
+            .navbar > .button {
+                font-size: 11px;
+                padding: 9px 12px;
+            }
+
+            .hero {
+                min-height: 440px;
+                background:
+                    linear-gradient(90deg,
+                        rgba(245, 228, 207, .95),
+                        rgba(245, 228, 207, .68)),
+                    url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=80')
+                    center / cover no-repeat;
+            }
+
+            .hero-content {
+                padding: 55px 0;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .features-grid {
+                gap: 15px;
+            }
+
+            .feature h3 {
+                font-size: 19px;
+            }
+
+            .about-grid,
+            .promise-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .about-image {
+                height: 280px;
+            }
+
+            .promise-image {
+                height: 280px;
+            }
+
+            .menu-grid {
+                gap: 13px;
+            }
+
+            .menu-card img {
+                height: 155px;
+            }
+
+            .menu-card .card-content {
+                padding: 12px;
+            }
+
+            .menu-card h3 {
+                font-size: 19px;
+            }
+
+            .menu-card p {
+                font-size: 12px;
+            }
+
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form .full {
+                grid-column: auto;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+            /* Інтерактивне меню */
+
+.menu-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    overflow-y: auto;
+    padding: 35px 20px;
+    background: rgba(45, 29, 20, 0.65);
+    backdrop-filter: blur(5px);
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.menu-modal.active {
+    display: flex;
+}
+
+.menu-window {
+    position: relative;
+    width: min(1050px, 100%);
+    margin: auto;
+    padding: 35px;
+    background: var(--cream);
+    border: 1px solid #e3d1bd;
+    border-radius: 14px;
+    box-shadow: 0 20px 70px rgba(40, 24, 15, 0.25);
+}
+
+.menu-window-header {
+    position: relative;
+    text-align: center;
+    padding: 10px 35px 28px;
+}
+
+.menu-window-header h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    color: var(--brown);
+}
+
+.menu-window-header p {
+    color: var(--muted);
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.menu-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #dfcdb9;
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--brown);
+    font-size: 27px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.menu-close:hover {
+    background: var(--brown);
+    color: white;
+}
+
+.menu-categories {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.category-card {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    border: none;
+    border-radius: 8px;
+    background: var(--white);
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(80, 49, 29, .07);
+    transition: transform .25s, box-shadow .25s;
+}
+
+.category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(80, 49, 29, .14);
+}
+
+.category-card img {
+    height: 230px;
+    transition: transform .4s;
+}
+
+.category-card:hover img {
+    transform: scale(1.04);
+}
+
+.category-card span {
+    display: block;
+    padding: 17px 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    color: var(--brown);
+}
+
+.category-card span small {
+    display: block;
+    margin-top: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.menu-back {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 18px;
+    background: transparent;
+    color: var(--brown);
+    border: 1px solid #d7c1aa;
+    border-radius: 25px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 13px;
+    transition: .2s;
+}
+
+.menu-back:hover {
+    background: var(--brown);
+    color: white;
+}
+
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.menu-item {
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--white);
+    box-shadow: 0 4px 18px rgba(80, 49, 29, .07);
+}
+
+.menu-item img {
+    height: 210px;
+}
+
+.menu-item-content {
+    padding: 18px;
+}
+
+.menu-item h3 {
+    font-size: 22px;
+    color: var(--brown);
+    margin-bottom: 8px;
+}
+
+.menu-item p {
+    min-height: 42px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.menu-item-price {
+    display: block;
+    margin-top: 13px;
+    color: var(--chocolate);
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.menu-empty {
+    padding: 30px;
+    text-align: center;
+    color: var(--muted);
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+@media (max-width: 650px) {
+    .menu-modal {
+        padding: 12px;
+    }
+
+    .menu-window {
+        padding: 20px 14px;
+    }
+
+    .menu-categories {
+        gap: 12px;
+    }
+
+    .category-card img {
+        height: 145px;
+    }
+
+    .category-card span {
+        padding: 12px;
+        font-size: 19px;
+    }
+
+    .category-card span small {
+        font-size: 10px;
+    }
+
+    .menu-items {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .menu-item img {
+        height: 135px;
+    }
+
+    .menu-item-content {
+        padding: 12px;
+    }
+
+    .menu-item h3 {
+        font-size: 17px;
+    }
+
+    .menu-item p {
+        min-height: 0;
+        font-size: 12px;
+    }
+
+    .menu-item-price {
+        font-size: 15px;
+    }
+
+    .menu-close {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 380px) {
+    .menu-items {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-item img {
+        height: 200px;
+    }
+}
+	</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container navbar">
+        <a class="logo" href="#home">
+            Марічка
+            <small>К А Ф Е</small>
+        </a>
+
+        <nav>
+            <a href="#home">Головна</a>
+            <a href="#menu">Меню</a>
+            <a href="#about">Про нас</a>
+            <a href="#features">Переваги</a>
+            <a href="#contacts">Контакти</a>
+        </nav>
+
+        <a class="button" href="#contacts">Зв'язатися з нами</a>
+    </div>
+</header>
+
+<!-- Головний екран -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <span class="eyebrow">Ваше місце затишку</span>
+            <h1>Ласкаво просимо до кафе «Марічка»</h1>
+            <p>Смак домашнього затишку в кожній страві.</p>
+            <a class="button" href="#menu">Переглянути меню →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Переваги -->
+<section class="section features" id="features">
+    <div class="container">
+        <div class="features-grid">
+
+            <div class="feature">
+                <div class="feature-icon">⌂</div>
+                <h3>Домашня кухня</h3>
+                <p>Улюблені страви, знайомі смаки та турбота в кожній порції.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">❋</div>
+                <h3>Свіжі продукти</h3>
+                <p>Інгредієнти, з яких народжуються смачні та апетитні страви.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">☕</div>
+                <h3>Ароматна кава</h3>
+                <p>Чашка улюбленої кави для приємної паузи протягом дня.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">♡</div>
+                <h3>Затишна атмосфера</h3>
+                <p>Місце для теплих розмов, зустрічей і приємного відпочинку.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Про кафе -->
+<section class="section" id="about">
+    <div class="container about-grid">
+
+        <img class="about-image"
+             src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=85"
+             alt="Світлий затишний інтер'єр кафе">
+
+        <div class="about-text">
+            <span class="eyebrow">Про кафе</span>
+            <h2>Трохи тепла у кожному дні</h2>
+            <p>
+                «Марічка» — це затишне кафе, створене з любов'ю до смачної їжі
+                та приємних моментів. Тут можна почати ранок із запашної кави,
+                насолодитися ситним обідом або провести вечір у гарній компанії.
+            </p>
+            <p>
+                Ми віримо, що найкращі моменти складаються з простих речей:
+                улюбленої страви, щирої розмови та атмосфери, до якої хочеться повертатися.
+            </p>
+            <a class="button" href="#menu">Обрати щось смачне →</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- Меню -->
+<section class="section menu-section" id="menu">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">Наше меню</span>
+            <h2>Смачні страви для кожного</h2>
+            <p>Від улюбленого сніданку до десерту з ароматною кавою.</p>
+        </div>
+
+        <div class="menu-grid">
+
+            <article class="menu-card">
+                <img
+                    src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=85"
+                    alt="Апетитний сніданок із яйцями та овочами"
+                    loading="lazy">
+                <div class="card-content">
+                    <h3>Сніданки</h3>
+                    <p>Смачно розпочинаємо день.</p>
+                </div>
+            </article>
+
+            <article class="menu-card">
+                <img
+                    src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=85"
+                    alt="Домашній суп для обіду"
+                    loading="lazy">
+                <div class="card-content">
+                    <h3>Обіди</h3>
+                    <p>Ситні страви для гарного дня.</p>
+                </div>
+            </article>
+
+            <article class="menu-card">
+                <img
+                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=85"
+                    alt="Шоколадний торт"
+                    loading="lazy">
+                <div class="card-content">
+                    <h3>Десерти</h3>
+                    <p>Маленька солодка насолода.</p>
+                </div>
+            </article>
+
+            <article class="menu-card">
+                <img
+                    src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=700&q=85"
+                    alt="Чашка свіжозвареної кави"
+                    loading="lazy">
+                <div class="card-content">
+                    <h3>Кава та чай</h3>
+                    <p>Напої для затишних моментів.</p>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="menu-note">
+    <button class="button" type="button" onclick="openMenu()">
+        Дізнатися більше про меню →
+    </button>
+</div>
+
+    </div>
+</section>
+
+<!-- Чому обирають нас -->
+<section class="section">
+    <div class="container promise-grid">
+
+        <div class="promise-text">
+            <span class="eyebrow">Наша філософія</span>
+            <h2>Більше, ніж просто кафе</h2>
+            <p>
+                Кафе «Марічка» — місце, де можна відпочити від щоденної метушні,
+                зустрітися з друзями або присвятити трохи часу собі.
+            </p>
+            <p>
+                Ми прагнемо, щоб кожен візит залишав приємні враження,
+                а звичайний день ставав трішки теплішим.
+            </p>
+            <a class="button" href="#contacts">Завітати до нас →</a>
+        </div>
+
+        <img class="promise-image"
+             src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85"
+             alt="Десерт для приємної перерви"
+             loading="lazy">
+
+    </div>
+</section>
+
+<!-- Контакти -->
+<section class="section contact-section" id="contacts">
+    <div class="container contact-grid">
+
+        <div>
+            <span class="eyebrow">Зв'яжіться з нами</span>
+            <h2>Ми завжди раді гостям</h2>
+            <p>Напишіть нам — будемо раді відповісти на ваші запитання.</p>
+
+            <form class="contact-form"
+                  action="mailto:hello@marichka.cafe"
+                  method="post"
+                  enctype="text/plain">
+
+                <input type="text" name="name"
+                       placeholder="Ваше ім'я" required>
+
+                <input type="email" name="email"
+                       placeholder="Електронна пошта" required>
+
+                <textarea class="full" name="message"
+                          placeholder="Ваше повідомлення..."
+                          required></textarea>
+
+                <button class="button full" type="submit">
+                    Надіслати повідомлення →
+                </button>
+            </form>
+        </div>
+
+        <div class="contact-info">
+            <h2>Завітайте до «Марічки»</h2>
+
+            <p>
+                <strong>✉ Електронна пошта</strong><br>
+                hello@marichka.cafe
+            </p>
+
+            <p>
+                <strong>☎ Телефон</strong><br>
+                +380 50 123 45 67
+            </p>
+
+            <p>
+                <strong>⌖ Адреса</strong><br>
+                м. Одеса, вул. Дерибасівська, 10
+            </p>
+
+            <p>
+                <strong>◷ Графік роботи</strong><br>
+                Щодня: 08:00–21:00
+            </p>
+
+            <img class="contact-photo"
+                 src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80"
+                 alt="Кава в затишній атмосфері"
+                 loading="lazy">
+        </div>
+
+    </div>
+</section>
+
+<!-- Підвал -->
+<footer>
+    <div class="container footer-content">
+
+        <a href="#home" class="footer-logo">Марічка</a>
+
+        <p>© 2026 Кафе «Марічка». Смак домашнього затишку.</p>
+
+        <div class="footer-links">
+            <a href="#home">Головна</a>
+            <a href="#menu">Меню</a>
+            <a href="#contacts">Контакти</a>
+        </div>
+
+    </div>
+</footer>
+<!-- Друге вікно меню -->
+<div class="menu-modal" id="menuModal">
+    <div class="menu-window">
+
+        <div class="menu-window-header">
+            <button class="menu-close" type="button" onclick="closeMenu()">×</button>
+            <span class="eyebrow">Кафе «Марічка»</span>
+            <h2 id="menuTitle">Наше меню</h2>
+            <p id="menuSubtitle">Оберіть категорію, щоб переглянути страви</p>
+        </div>
+
+        <div class="menu-categories" id="menuCategories">
+
+            <button class="category-card" onclick="openMenuCategory('breakfast')">
+                <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80" alt="Сніданки">
+                <span>Сніданки<small>Ранок починається смачно</small></span>
+            </button>
+
+            <button class="category-card" onclick="openMenuCategory('lunch')">
+                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80" alt="Обіди">
+                <span>Обіди<small>Ситні домашні страви</small></span>
+            </button>
+
+            <button class="category-card" onclick="openMenuCategory('dessert')">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80" alt="Десерти">
+                <span>Десерти<small>Солодкі моменти</small></span>
+            </button>
+
+            <button class="category-card" onclick="openMenuCategory('drinks')">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=700&q=80" alt="Кава та чай">
+                <span>Кава та чай<small>Напої для гарного настрою</small></span>
+            </button>
+
+        </div>
+
+        <div id="menuItemsView" hidden>
+            <button class="menu-back" type="button" onclick="backToCategories()">← Усі категорії</button>
+            <div class="menu-items" id="menuItems"></div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+const menuData = {
+    breakfast: {
+        title: "Сніданки",
+        items: [
+            {
+                name: "Сирники",
+                description: "Ніжні сирники зі сметаною",
+                price: "180 грн",
+                image: "https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                name: "Яєчня з тостами",
+                description: "Яйця, хрусткі тости та зелень",
+                price: "160 грн",
+                image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                name: "Млинці",
+                description: "Млинці з ніжною начинкою",
+                price: "150 грн",
+                image: "https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=600&q=80"
+            }
+        ]
+    },
+
+    lunch: {
+        title: "Обіди",
+        items: [
+            {
+                name: "Овочевий суп",
+                description: "Легкий суп зі свіжих овочів",
+                price: "140 грн",
+                image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                name: "Паста",
+                description: "Паста з ароматним соусом",
+                price: "220 грн",
+                image: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                name: "Курка з овочами",
+                description: "Соковита курка з гарніром",
+                price: "250 грн",
+                image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80"
+            }
+        ]
+    },
+
+    dessert: {
+        title: "Десерти",
+        items: [
+            {
+                name: "Шоколадний торт",
+                description: "Насичений шоколадний смак",
+                price: "160 грн",
+                image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                name: "Чізкейк",
+                description: "Ніжний вершковий десерт",
+                price: "150 грн",
+                image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                name: "Круасан",
+                description: "Свіжа випічка до кави",
+                price: "95 грн",
+                image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80"
+            }
+        ]
+    },
+
+    drinks: {
+        title: "Кава та чай",
+        items: [
+            {
+                name: "Еспресо",
+                description: "Міцна кава з насиченим ароматом",
+                price: "65 грн",
+                image: "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                name: "Капучино",
+                description: "Кава з ніжною молочною пінкою",
+                price: "85 грн",
+                image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                name: "Лате",
+                description: "М'який кавовий смак із молоком",
+                price: "90 грн",
+                image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                name: "Чай",
+                description: "Ароматний чорний або зелений чай",
+                price: "70 грн",
+                image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80"
+            }
+        ]
+    }
+};
+
+function openMenu() {
+    document.getElementById("menuModal").classList.add("active");
+    document.body.classList.add("menu-open");
+    backToCategories();
+}
+
+function closeMenu() {
+    document.getElementById("menuModal").classList.remove("active");
+    document.body.classList.remove("menu-open");
+}
+
+function openMenuCategory(category) {
+    const data = menuData[category];
+    if (!data) return;
+
+    document.getElementById("menuTitle").textContent = data.title;
+    document.getElementById("menuSubtitle").textContent = "Оберіть щось смачне для себе";
+    document.getElementById("menuCategories").hidden = true;
+    document.getElementById("menuItemsView").hidden = false;
+
+    document.getElementById("menuItems").innerHTML = data.items.map(item => `
+        <article class="menu-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="menu-item-content">
+                <h3>${item.name}</h3>
+                <p>${item.description}</p>
+                <span class="menu-item-price">${item.price}</span>
+            </div>
+        </article>
+    `).join("");
+}
+
+function backToCategories() {
+    document.getElementById("menuTitle").textContent = "Наше меню";
+    document.getElementById("menuSubtitle").textContent =
+        "Оберіть категорію, щоб переглянути страви";
+    document.getElementById("menuCategories").hidden = false;
+    document.getElementById("menuItemsView").hidden = true;
+}
+
+document.getElementById("menuModal").addEventListener("click", function(event) {
+    if (event.target === this) closeMenu();
+});
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") closeMenu();
+});
+</script>
+</body>
+</html>
